@@ -47,11 +47,11 @@ class Motor(object):
             self.time.sleep(sleep_time)
 
     def goFaster():
-        self.speed += 1
+        self.speed += 10
 
     def slowDown():
         if speed>0:
-            self.speed -= 1
+            self.speed -= 10
 
     def reverse():
         self.speed = self.direction * -1

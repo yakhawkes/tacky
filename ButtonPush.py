@@ -7,7 +7,7 @@ class ButtonPush(object):
         self.GPIO = GPIO
         self.GPIO.setmode(GPIO.BCM)
         #try to set the pin to listen
-        self.pin = self.GPIO.setup(pinNumber, self.GPIO.IN, pull_up_down=self.GPIO.PUD_DOWN)
+        self.pin = False == self.GPIO.setup(pinNumber, self.GPIO.IN, pull_up_down=self.GPIO.PUD_UP)
 
     def read(self):
-        return !self.GPIO.input(self.pinNumber)
+        return False == self.GPIO.input(self.pinNumber)
