@@ -14,24 +14,21 @@ button3 = ButtonPush(5)
 button4 = ButtonPush(4)
 
 motor = Motor()
-speed = 1
+speed =0.00001
 while True:
-    if speed > 1:
-        motor.advance()
+    motor.advance()
     if button1.read() == True:
         #go faster
-        speed+=10
-    print(speed)
+        speed = speed / 10
 
     if button2.read() == True:
         #slow down
-        speed-=10
-        print(speed)
-
+        speed = speed * 10
+        
     if button3.read() == True:
         pass
 
     if button4.read() == True:
         break
 
-    
+    time.sleep(0.005)

@@ -9,15 +9,14 @@ class Motor(object):
         for pinNumber in self.stepperPins:
             self.GPIO.setup(pinNumber, self.GPIO.OUT)
             self.GPIO.output(pinNumber, False)
-
-        self.sequence = [[1, 0, 0, 1],
-                    [1, 0, 0, 0],
-                    [1, 1, 0, 0],
-                    [0, 1, 0, 0],
-                    [0, 1, 1, 0],
-                    [0, 0, 1, 0],
-                    [0, 0, 1, 1],
-                    [0, 0, 0, 1]]
+        self.sequence = [[1, 1, 0, 0],[0, 1, 1, 0],[0, 0, 1, 1],[1, 0, 0, 1]]
+#                     [1, 0, 0, 0],
+#                    [0, 1, 0, 0],
+#                    ] [0, 1, 0, 0],
+#                    [0, 0, 1, 0]]#,
+#                     [0, 0, 1, 0],
+ #                   [0, 0, 0, 1]]#,
+#                    [0, 0, 0, 1]]
 
     def advance(self):  # Start main loop
         #for each step
