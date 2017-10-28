@@ -22,7 +22,7 @@ class Motor(object):
                     [0, 0, 0, 1]]
         self.stepCount = len(self.sequence)
 
-    def start(self, speed=1, stepDir=1):  # Start main loop
+    def start(self, speed=1, direction=1):  # Start main loop
         self.speed = speed
         stepCounter = 0
         sleep_time =0.1 / float(speed)
@@ -35,14 +35,14 @@ class Motor(object):
                     self.GPIO.output(pinNumber, False)
 
 
-            stepCounter += stepDir
+            stepCounter += direction
 
             # If we reach the end of the sequenceuence
             # start again
             if (stepCounter >= self.stepCount):
                 stepCounter = 0
             if (stepCounter < 0):
-                stepCounter = self.stepCount + stepDir
+                stepCounter = self.stepCount + direction
 
             self.time.sleep(sleep_time)
 
@@ -52,3 +52,6 @@ class Motor(object):
     def slowDown():
         if speed>0:
             self.speed -= 1
+
+    def reverse():
+        self.speed = self.direction * -1
