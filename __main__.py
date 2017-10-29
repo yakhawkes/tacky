@@ -29,7 +29,7 @@ def storeSpeed():
 def checkSpeed():
     global speed
     global storedSpeed
-    if speed * 0.9 < storedSpeed or speed * 1.1 > storedSpeed:
+    if speed * 0.9 > storedSpeed or speed * 1.1 < storedSpeed:
         speed = maxSpeed
         global direction
         pygame.mixer.music.load("siren.mp3")
@@ -39,7 +39,7 @@ storedSpeed = 0
 direction = 1
 maxSpeed = 0.005
 minSpeed = 0.5
-speed = minSpeed / 2
+speed = minSpeed / 4
 motor = Motor()
 useage = Useage()
 pygame.mixer.init()
