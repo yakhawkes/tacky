@@ -54,7 +54,8 @@ def reverse():
 
 def reset():
     pygame.mixer.music.load("/home/pi/tacky/click.mp3")
-    global speed = minSpeed
+    global speed
+    speed = minSpeed
 
 storedSpeed = 0
 direction = 1
