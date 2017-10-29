@@ -62,9 +62,11 @@ button3.when_pressed = checkSpeed
 #Yellow
 button4 = Button(4)
 button4.when_pressed = reverse
+def move(direction, speed):
+    motor.makeStep(direction,speed)
 
 while True:
     t1 = Thread(target=playSound,args=(speed))
-    t2 = Thread(target=motor.makeStep,args=(direction,speed))
+    t2 = Thread(target=move,args=(direction,speed))
     t1.start()
     t2.start()
