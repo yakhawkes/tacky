@@ -56,7 +56,7 @@ button3.when_pressed = checkSpeed(speed)
 #Yellow
 button4 = Button(4)
 
-while TRUE:
+while True:
     t1 = Thread(target=playSound,args={speed})
     t2 = Thread(target=motor.makeStep,args={direction,speed})
     t1.start()
