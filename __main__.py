@@ -15,7 +15,7 @@ def changeSpeed(method):
     global minSpeed
     global speed
     sound = "click"
-    if(speed + value)< maxSpeed and (speed + value) > minSpeed:    
+    if(speed + value)< maxSpeed and (speed + value) > minSpeed:
         speed += value
 
 def playSound(speed):
@@ -28,7 +28,7 @@ def storeSpeed(speed):
 
 def checkSpeed(speed):
     if speed * 0.9 < storedSpeed or speed * 1.1 > storedSpeed:
-        speed = maxSpeed()
+        speed = maxSpeed
         global sound
         global direction
         sound = "siren"
