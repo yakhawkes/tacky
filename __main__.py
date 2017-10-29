@@ -86,4 +86,5 @@ while True:
     t1.start()
     t2.start()
     if count % 10000 ==0:
-        t3.start()
+        #t3.start()
+        pass
