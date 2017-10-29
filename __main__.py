@@ -5,6 +5,9 @@ import time
 from gpiozero import Button
 from Motor import Motor
 from Useage import Useage
+import pygame
+pygame.mixer.init()
+pygame.mixer.music.load("click.mp3")
 #Green
 button1 = Button(21)
 #Red
@@ -33,4 +36,5 @@ def changeSpeed(method):
     button1.when_pressed = changeSpeed(useage.current)
 while True:
     motor.makeStep(direction)
+    pygame.mixer.music.play()
     time.sleep(speed)
