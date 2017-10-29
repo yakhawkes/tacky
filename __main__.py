@@ -15,8 +15,9 @@ def changeSpeed():
     global minSpeed
     global speed
     pygame.mixer.music.load("click.mp3")
-    if(speed + value)< maxSpeed and (speed + value) > minSpeed:
-        speed += value
+    speed += value
+    #if(speed + value)< maxSpeed and (speed + value) > minSpeed:
+    #    speed += value
 
 def playSound(speed):
     pygame.mixer.music.play()
