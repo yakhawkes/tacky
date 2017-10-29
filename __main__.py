@@ -21,7 +21,7 @@ def changeSpeed():
         direction = 1
     else:
         direction = -1
-        value * -1
+        value = value * -1
 
     value =value /1000
     pygame.mixer.music.load("/home/pi/tacky/click.mp3")

@@ -12,7 +12,7 @@ class Useage:
 
     def  current(self):
         print(self.data['speed'])
-        self.data['speed']
+        return self.data['speed']
 
 
     def volume(self):
