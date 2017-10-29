@@ -21,11 +21,14 @@ def playSound(speed):
     pygame.mixer.music.play()
     time.sleep(speed)
 
-def storeSpeed(speed):
+def storeSpeed():
     global storedSpeed
+    global speed
     storeSpeed = speed
 
-def checkSpeed(speed):
+def checkSpeed():
+    global speed
+    global storedSpeed
     if speed * 0.9 < storedSpeed or speed * 1.1 > storedSpeed:
         speed = maxSpeed
         global direction
@@ -46,10 +49,10 @@ button1 = Button(21)
 button1.when_pressed = changeSpeed(useage.current)
 #Red
 button2 = Button(13)
-button2.when_pressed = storeSpeed(speed)
+button2.when_pressed = storeSpeed
 #Blue
 button3 = Button(5)
-button3.when_pressed = checkSpeed(speed)
+button3.when_pressed = checkSpeed
 #Yellow
 button4 = Button(4)
 
