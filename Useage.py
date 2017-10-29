@@ -10,7 +10,11 @@ class Useage:
     self.data = json.loads(request.text)
 
     def  current(self):
-        return self.data["speed"]
+        if self.data != 0:
+            return self.data["speed"] /float(10000
+        else:
+            return 0
+
 
     def volume(self):
         return self.data["usage"]
