@@ -1,4 +1,4 @@
-"""
+"""print()
     The Carbon coop challenge for hackmanchester 2017
 """
 from threading import Thread

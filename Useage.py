@@ -4,7 +4,7 @@ import json
 
 
 class Useage:
-    def __init__():
+    def __init__(self):
         request =  requests.get("http://tackapi22.azurewebsites.net/api/useage")
         self.data = json.loads(request.text)
 
