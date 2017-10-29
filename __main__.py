@@ -24,7 +24,6 @@ def changeSpeed():
         value = value * -1
 
     value =value /1000
-    pygame.mixer.music.load("/home/pi/tacky/click.mp3")
     print(speed)
     if(speed + value)>= maxSpeed and (speed + value) <= minSpeed:
         speed = minSpeed + value
@@ -53,6 +52,10 @@ def reverse():
     direction = direction *-1
     print(direction)
 
+def reset():
+    pygame.mixer.music.load("/home/pi/tacky/click.mp3")
+    global speed = minSpeed
+
 storedSpeed = 0
 direction = 1
 maxSpeed = 0.005
@@ -70,7 +73,7 @@ button2 = Button(13)
 button2.when_pressed = storeSpeed
 #Blue
 button3 = Button(5)
-button3.when_pressed = checkSpeed
+button3.when_pressed = reset
 #Yellow
 button4 = Button(4)
 button4.when_pressed = reverse
@@ -86,5 +89,4 @@ while True:
     t1.start()
     t2.start()
     if count % 10000 ==0:
-        #t3.start()
-        pass
+        t3.start()
