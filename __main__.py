@@ -11,6 +11,7 @@ import pygame
 def changeSpeed():
     global useage
     value = useage.current()
+    print(value)
     global maxSpeed
     global minSpeed
     global speed
@@ -23,6 +24,7 @@ def changeSpeed():
 
     value =value /1000
     pygame.mixer.music.load("/home/pi/tacky/click.mp3")
+    print(speed)
     if(speed + value)>= maxSpeed and (speed + value) <= minSpeed:
         speed = minSpeed + value
 
