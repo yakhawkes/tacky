@@ -14,9 +14,14 @@ def changeSpeed():
     global maxSpeed
     global minSpeed
     global speed
+    global direction
     pygame.mixer.music.load("/home/pi/tacky/click.mp3")
     if(speed + value)>= maxSpeed and (speed + value) <= minSpeed:
         speed += value
+    if value >= 100:
+        direction = 1
+    else:
+        direction = -1
 
 def playSound(j,speed):
     pygame.mixer.music.play()
@@ -35,7 +40,6 @@ def checkSpeed():
     if storedSpeed * 0.9 > speed or storedSpeed * 1.1 < speed:
         speed = maxSpeed
         pygame.mixer.music.load("/home/pi/tacky/siren.mp3")
-        direction = 1
 
 def reverse():
     global direction

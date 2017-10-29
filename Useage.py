@@ -5,8 +5,12 @@ import json
 
 
 class Useage:
+    __init__():
+    request =  requests.get("http://tackapi22.azurewebsites.net/api/useage")
+    self.data = json.loads(request.text)
 
     def  current(self):
-        request =  requests.get("http://tackapi.azurewebsites.net/api/usage")
-        data = json.loads(request.text)
-        return 0.25#(float(data['speed'])/100)*-1
+        return self.data["speed"]
+
+    def volume(self):
+        return self.data["usage"]
