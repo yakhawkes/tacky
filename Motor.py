@@ -20,5 +20,7 @@ class Motor(object):
             else:
                 self.GPIO.output(pinNumber, False)
 
+        print(self.step)
+        print(direction)
         self.step += direction
         time.sleep(speed)
