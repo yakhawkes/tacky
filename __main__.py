@@ -7,6 +7,33 @@ from gpiozero import Button
 from Motor import Motor
 from Useage import Useage
 import pygame
+
+def changeSpeed(method):
+    value = method()
+    global sound
+    global maxSpeed
+    global minSpeed
+    sound = "click"
+    if(speed + value)< maxSpeed and (speed + value) > minSpeed:
+        global speed
+        speed += value
+
+def playSound(speed):
+    pygame.mixer.music.play()
+    time.sleep(speed)
+
+def storeSpeed(speed):
+    global storedSpeed
+    storeSpeed = speed
+
+def checkSpeed(speed):
+    if speed * 0.9 < storedSpeed or speed * 1.1 > storedSpeed:
+        speed = maxSpeed()
+        global sound
+        global direction
+        sound = "siren"
+        direction = 1
+
 sound = "click"
 storedSpeed = 0
 direction = 1
@@ -34,31 +61,3 @@ while TRUE:
     t2 = Thread(target=motor.makeStep,args={direction,speed})
     t1.start()
     t2.start()
-
-
-def changeSpeed(method):
-    value = method()
-    global sound
-    global maxSpeed
-    global minSpeed
-    sound = "click"
-    if(speed + value)< maxSpeed and (speed + value) > minSpeed:
-        global speed
-        speed += value
-
-
-def playSound(speed):
-    pygame.mixer.music.play()
-    time.sleep(speed)
-
-def storeSpeed(speed):
-    global storedSpeed
-    storeSpeed = speed
-
-def checkSpeed(speed):
-    if speed * 0.9 < storedSpeed or speed * 1.1 > storedSpeed:
-        speed = maxSpeed()
-        global sound
-        global direction
-        sound = "siren"
-        direction = 1
