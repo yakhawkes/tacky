@@ -8,8 +8,9 @@ from Motor import Motor
 from Useage import Useage
 import pygame
 
-def changeSpeed(method):
-    value = method()
+def changeSpeed():
+    global useage
+    value = useage.current()
     global maxSpeed
     global minSpeed
     global speed
@@ -29,7 +30,7 @@ def storeSpeed():
 def checkSpeed():
     global speed
     global storedSpeed
-    if speed * 0.9 < storedSpeed or speed * 1.1 > storedSpeed:
+    if speed * 0.9 > storedSpeed or speed * 1.1 < storedSpeed:
         speed = maxSpeed
         global direction
         pygame.mixer.music.load("siren.mp3")
@@ -39,14 +40,14 @@ storedSpeed = 0
 direction = 1
 maxSpeed = 0.005
 minSpeed = 0.5
-speed = minSpeed / 2
+speed = minSpeed / 4
 motor = Motor()
 useage = Useage()
 pygame.mixer.init()
 pygame.mixer.music.load("click.mp3")
 #Green
 button1 = Button(21)
-button1.when_pressed = changeSpeed(useage.current)
+button1.when_pressed = changeSpeed
 #Red
 button2 = Button(13)
 button2.when_pressed = storeSpeed
