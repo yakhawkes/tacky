@@ -29,8 +29,6 @@ def changeSpeed():
     if(speed + value)>= maxSpeed and (speed + value) <= minSpeed:
         speed = minSpeed + value
 
-    time.sleep(30*10000)
-
 
 def playSound(j,speed):
     pygame.mixer.music.play()
@@ -79,11 +77,13 @@ button4.when_pressed = reverse
 
 def move(direction, speed):
     motor.makeStep(direction,speed)
-
+count = 0
 while True:
+    count+=1
     t1 = Thread(target=playSound,args=(1,speed))
     t2 = Thread(target=move,args=(direction,speed))
     t3 = Thread(target=changeSpeed,args={})
     t1.start()
     t2.start()
-    t3.start()
+    if count % 10000 ==0:
+        t3.start()
