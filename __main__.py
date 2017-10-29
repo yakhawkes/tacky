@@ -10,11 +10,10 @@ import pygame
 
 def changeSpeed(method):
     value = method()
-    global sound
     global maxSpeed
     global minSpeed
     global speed
-    sound = "click"
+    pygame.mixer.music.load("click.mp3")
     if(speed + value)< maxSpeed and (speed + value) > minSpeed:
         speed += value
 
@@ -29,12 +28,10 @@ def storeSpeed(speed):
 def checkSpeed(speed):
     if speed * 0.9 < storedSpeed or speed * 1.1 > storedSpeed:
         speed = maxSpeed
-        global sound
         global direction
-        sound = "siren"
+        pygame.mixer.music.load("siren.mp3")
         direction = 1
 
-sound = "click"
 storedSpeed = 0
 direction = 1
 maxSpeed = 0.005
