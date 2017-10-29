@@ -22,5 +22,5 @@ class Motor(object):
 
         print(self.step)
         #print(self.step + step)
-        #self.step += direction
+        self.step = self.step + direction
         time.sleep(speed)
