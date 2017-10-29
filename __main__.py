@@ -36,6 +36,10 @@ def checkSpeed():
         pygame.mixer.music.load("siren.mp3")
         direction = 1
 
+def reverse():
+    global direction
+    direction = direction *-1
+
 storedSpeed = 0
 direction = 1
 maxSpeed = 0.005
@@ -56,6 +60,7 @@ button3 = Button(5)
 button3.when_pressed = checkSpeed
 #Yellow
 button4 = Button(4)
+button4.when_pressed = reverse
 
 while True:
     t1 = Thread(target=playSound,args={speed})
