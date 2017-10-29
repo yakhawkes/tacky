@@ -66,7 +66,7 @@ def move(direction, speed):
     motor.makeStep(direction,speed)
 
 while True:
-    t1 = Thread(target=playSound,args=(speed))
+    t1 = Thread(target=playSound,args={speed})
     t2 = Thread(target=move,args=(direction,speed))
     t1.start()
     t2.start()
