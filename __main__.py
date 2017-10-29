@@ -23,6 +23,7 @@ def playSound(speed):
     time.sleep(speed)
 
 def storeSpeed():
+    """(none)->none Store the speed value"""
     global storedSpeed
     global speed
     storedSpeed = speed
