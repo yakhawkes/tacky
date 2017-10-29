@@ -7,7 +7,6 @@ from gpiozero import Button
 from Motor import Motor
 from Useage import Useage
 import pygame
-motor
 def Main():
     pygame.mixer.init()
     pygame.mixer.music.load("click.mp3")
@@ -23,11 +22,11 @@ def Main():
     maxSpeed = 0.005
     minSpeed = 0.5
     speed = minSpeed / 2
-    global motor = Motor()
+    motor = Motor()
     useage = Useage()
     inputType = 1
     t1 = Thread(target=move,args={speed, direction})
-    t2 = Thread(target=playSound,args={speed})
+    t2 = Thread(target=motor.makeStep,args={ direction,speed})
     t1.start()
     t2.start()
 
@@ -45,9 +44,5 @@ def playSound(speed):
     pygame.mixer.music.play()
     time.sleep(speed)
 
-
-def move(speed, direction):
-    global motor.makeStep(direction)
-    time.sleep(speed)
 
 if __name__ == '__main__':Main()

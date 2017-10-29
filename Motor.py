@@ -1,3 +1,4 @@
+import time
 class Motor(object):
     """Motor controller for a setper motor"""
     def __init__(self):
@@ -11,7 +12,7 @@ class Motor(object):
             self.GPIO.output(pinNumber, False)
         self.sequence = [[1, 1, 0, 0],[0, 1, 1, 0],[0, 0, 1, 1],[1, 0, 0, 1]]
 
-    def makeStep(self,direction):  # Start main loop
+    def makeStep(self,direction,speed):  # Start main loop
         for pin in range(0, 4):
             pinNumber = self.stepperPins[pin]
             if self.sequence[self.step % 4][pin] != 0:
@@ -20,3 +21,4 @@ class Motor(object):
                 self.GPIO.output(pinNumber, False)
 
         self.step += direction
+        time.sleep(speed)
