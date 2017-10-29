@@ -65,6 +65,6 @@ button4.when_pressed = reverse
 
 while True:
     t1 = Thread(target=playSound,args={speed})
-    t2 = Thread(target=motor.makeStep,args={direction,speed})
+    t2 = Thread(target=motor.makeStep,kwargs={'directon': direction,'speed': speed}})
     t1.start()
     t2.start()
