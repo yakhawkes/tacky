@@ -10,8 +10,8 @@ class Useage:
         print(self.data)
 
     def  current(self):
-        self.data["data"]["speed"]
+        self.data['speed']
 
 
     def volume(self):
-        return self.data["data"]["usage"]
+        return self.data['usage']
