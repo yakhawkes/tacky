@@ -13,6 +13,8 @@ direction = 1
 maxSpeed = 0.005
 minSpeed = 0.5
 speed = minSpeed / 2
+motor = Motor()
+useage = Useage()
 pygame.mixer.init()
 pygame.mixer.music.load("click.mp3")
 #Green
@@ -27,9 +29,6 @@ button3.when_pressed = checkSpeed(speed)
 #Yellow
 button4 = Button(4)
 
-motor = Motor()
-useage = Useage()
-inputType = 1
 while TRUE:
     t1 = Thread(target=playSound,args={speed})
     t2 = Thread(target=motor.makeStep,args={direction,speed})
