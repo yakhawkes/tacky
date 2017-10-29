@@ -25,7 +25,7 @@ def Main():
     motor = Motor()
     useage = Useage()
     inputType = 1
-    t1 = Thread(target=move,args={speed,motor,direction})
+    t1 = Thread(target=move,args={speed, direction})
     t2 = Thread(target=playSound,args={speed})
     t1.start()
     t2.start()
@@ -45,8 +45,8 @@ def playSound(speed):
     time.sleep(speed)
 
 
-def move(speed,motor,direction):
-    motor.makeStep(direction)
+def move(speed, direction):
+    global motor.makeStep(direction)
     time.sleep(speed)
 
 if __name__ == '__main__':Main()
