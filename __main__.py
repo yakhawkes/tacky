@@ -11,7 +11,7 @@ import pygame
 def changeSpeed():
     global useage
     print("get useage")
-    value = int(useage.current())
+    value = useage.current()
     print(value)
     global maxSpeed
     global minSpeed
