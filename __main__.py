@@ -68,13 +68,13 @@ pygame.mixer.init()
 pygame.mixer.music.load("/home/pi/tacky/click.mp3")
 #Green
 button1 = Button(21)
-button1.when_pressed = changeSpeed
+button1.when_pressed = reset
 #Red
 button2 = Button(13)
 button2.when_pressed = storeSpeed
 #Blue
 button3 = Button(5)
-button3.when_pressed = reset
+button3.when_pressed = checkSpeed
 #Yellow
 button4 = Button(4)
 button4.when_pressed = reverse
