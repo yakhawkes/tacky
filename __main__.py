@@ -14,11 +14,11 @@ def changeSpeed():
     global maxSpeed
     global minSpeed
     global speed
-    pygame.mixer.music.load("click.mp3")
+    pygame.mixer.music.load("/home/pi/tacky/click.mp3")
     if(speed + value)>= maxSpeed and (speed + value) <= minSpeed:
         speed += value
 
-def playSound(speed):
+def playSound(j,speed):
     pygame.mixer.music.play()
     time.sleep(speed)
 
@@ -34,12 +34,13 @@ def checkSpeed():
     global direction
     if storedSpeed * 0.9 > speed or storedSpeed * 1.1 < speed:
         speed = maxSpeed
-        pygame.mixer.music.load("siren.mp3")
+        pygame.mixer.music.load("/home/pi/tacky/siren.mp3")
         direction = 1
 
 def reverse():
     global direction
     direction = direction *-1
+    print(direction)
 
 storedSpeed = 0
 direction = 1
@@ -49,7 +50,7 @@ speed = minSpeed / 4
 motor = Motor()
 useage = Useage()
 pygame.mixer.init()
-pygame.mixer.music.load("click.mp3")
+pygame.mixer.music.load("/home/pi/tacky/click.mp3")
 #Green
 button1 = Button(21)
 button1.when_pressed = changeSpeed
@@ -62,11 +63,12 @@ button3.when_pressed = checkSpeed
 #Yellow
 button4 = Button(4)
 button4.when_pressed = reverse
+
 def move(direction, speed):
     motor.makeStep(direction,speed)
 
 while True:
-    t1 = Thread(target=playSound,args={speed})
+    t1 = Thread(target=playSound,args=(1,speed))
     t2 = Thread(target=move,args=(direction,speed))
     t1.start()
     t2.start()
