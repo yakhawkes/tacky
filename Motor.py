@@ -15,7 +15,7 @@ class Motor(object):
     def makeStep(self,direction,speed):  # Start main loop
         for pin in range(0, 4):
             pinNumber = self.stepperPins[pin]
-            if self.sequence[self.step % 4][pin] != 0:
+            if self.sequence[int(self.step % 4)][pin] != 0:
                 self.GPIO.output(pinNumber, True)
             else:
                 self.GPIO.output(pinNumber, False)

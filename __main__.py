@@ -25,10 +25,11 @@ def Main():
     motor = Motor()
     useage = Useage()
     inputType = 1
-    t1 = Thread(target=move,args={speed, direction})
-    t2 = Thread(target=motor.makeStep,args={ direction,speed})
-    t1.start()
-    t2.start()
+    while TRUE:
+        t1 = Thread(target=playSound,args={speed})
+        t2 = Thread(target=motor.makeStep,args={direction,speed})
+        t1.start()
+        t2.start()
 
 
 def changeSpeed(method):
