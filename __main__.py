@@ -29,6 +29,8 @@ def changeSpeed():
     if(speed + value)>= maxSpeed and (speed + value) <= minSpeed:
         speed = minSpeed + value
 
+    time.sleep(5)
+
 
 def playSound(j,speed):
     pygame.mixer.music.play()
