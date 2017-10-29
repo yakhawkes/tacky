@@ -81,7 +81,7 @@ def move(direction, speed):
 while True:
     t1 = Thread(target=playSound,args=(1,speed))
     t2 = Thread(target=move,args=(direction,speed))
-    t3 = Thread(target=changeSpeed,args{})
+    t3 = Thread(target=changeSpeed,args={})
     t1.start()
     t2.start()
     t3.start()
