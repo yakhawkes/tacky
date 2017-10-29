@@ -25,7 +25,7 @@ def playSound(speed):
 def storeSpeed():
     global storedSpeed
     global speed
-    storeSpeed = speed
+    storedSpeed = speed
 
 def checkSpeed():
     global speed
