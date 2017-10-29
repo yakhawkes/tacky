@@ -7,6 +7,7 @@ class Useage:
     def __init__(self):
         request =  requests.get("http://tackapi22.azurewebsites.net/api/useage")
         self.data = json.loads(request.text)
+        print(self.data)
 
     def  current(self):
         self.data["speed"]
