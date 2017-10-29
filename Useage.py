@@ -11,6 +11,7 @@ class Useage:
         print(self.data['speed'])
 
     def  current(self):
+        print(self.data['speed'])
         self.data['speed']
 
 
